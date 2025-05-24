@@ -1,0 +1,47 @@
+<h2>Update</h2>
+<form class="from-horizontal" name="frmEditUser" ng-submit="updateUser(user)" novalidate>
+    <h4><strong>Update current user</strong></h4>
+    <hr />
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Name</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="name" ng-model="user.name" ng-maxlength="35" required/>
+            <span class="text-danger" ng-show="(frmEditUser.name.$touched || frmEditUser.name.$dirty) && frmEditUser.name.$invalid">
+                <span ng-show="frmEditUser.name.$error.required">Name is required</span>
+                <span ng-show="frmEditUser.name.$error.maxlength">Name must be less then or equal to 35</span>
+            </span>
+        </div>
+    </div>
+
+     <div class="form-group">
+        <label class="col-lg-2 control-label">Address</label>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="address" ng-model="user.address" ng-maxlength="50" ng-minlength="2"/>
+            <span class="text-danger" ng-show="frmEditUser.address.$dirty && (frmEditUser.address.$error.minlength || frmEditUser.address.$error.maxlength)">
+                Address must be in range 2 to 50
+            </span>
+        </div>
+    </div>
+
+     <div class="form-group">
+        <label class="col-lg-2 control-label">E-mail</label>
+        <div class="col-lg-4">
+            <input type="email" class="form-control" name="mail" ng-model="user.email" ng-maxlength="50" required />
+            <span class="text-danger" ng-show="(frmEditUser.mail.$touched || frmEditUser.mail.$dirty) && frmEditUser.mail.$invalid">
+                <span ng-show="frmEditUser.mail.$error.required">Email is required</span>
+                <span ng-show="frmEditUser.mail.$error.email">Invalid email address</span>
+                <span ng-show="frmEditUser.mail.$error.maxlength">Email must be less then or equal to 50</span>
+            </span>
+        </div>
+    </div>
+    
+    <br>
+     <div class="form-group">
+        <div class="d-flex gap-2">
+            <input type="submit" class="btn btn-success" value="Update" ng-if="states.showUpdateButton" ng-disabled="frmEditUser.$pristine || frmEditUser.$invalid"/>
+            <a href="#" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+
+</form>
