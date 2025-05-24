@@ -1,2 +1,2 @@
 # AngularsCrud
-Development using C#, AngularJS And Net Core With Visual Studio And Visual Code With Database SQL Server And UI Boostrap
+Development using C# And AngularJS With Visual Studio And Visual Code With Database SQL Server And UI Boostrap
